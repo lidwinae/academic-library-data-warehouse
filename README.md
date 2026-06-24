@@ -331,4 +331,3 @@ After resetting, repeat the dump restore and initial load steps.
 - `README.md` is the English overview for GitHub and portfolio use.
 - `README1_initial_load.txt` and `README2_incremental_load.txt` are Indonesian operational runbooks for the project demo.
 - SQL source files are stored in the `sql/` directory.
-- Query output files are supporting artifacts and are not required to understand the implementation.
