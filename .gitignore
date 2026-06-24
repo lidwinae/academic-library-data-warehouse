@@ -1,0 +1,29 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor and IDE folders
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# PostgreSQL / Docker local runtime artifacts
+pgdata/
+postgres-data/
+data/
+
+# Office temporary files
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# Environment files
+.env
+.env.*
+
+Script SQL/output_analisis.txt

@@ -1,0 +1,61 @@
+services:
+  db_akademik:
+    image: postgres:15
+    container_name: db_akademik
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user
+      POSTGRES_DB: db_akademik
+      TZ: Asia/Jakarta
+      PGTZ: Asia/Jakarta
+    ports:
+      - "5434:5432"
+    volumes:
+      - akademik_data:/var/lib/postgresql/data
+    command: >
+      postgres
+      -c timezone=Asia/Jakarta
+
+  db_perpus:
+    image: postgres:15
+    container_name: db_perpus
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user
+      POSTGRES_DB: db_perpus
+      TZ: Asia/Jakarta
+      PGTZ: Asia/Jakarta
+    ports:
+      - "5435:5432"
+    volumes:
+      - perpus_data:/var/lib/postgresql/data
+    command: >
+      postgres
+      -c timezone=Asia/Jakarta
+
+  db_dw:
+    build: .
+    container_name: db_dw
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: user
+      POSTGRES_DB: DWakadperpus
+      TZ: Asia/Jakarta
+      PGTZ: Asia/Jakarta
+    ports:
+      - "5436:5432"
+    volumes:
+      - dw_data:/var/lib/postgresql/data
+      - ./01_pgcron.sql:/docker-entrypoint-initdb.d/01_pgcron.sql
+      - ./02_init_cron.sql:/docker-entrypoint-initdb.d/02_init_cron.sql
+    command: >
+      postgres
+      -c shared_preload_libraries=pg_cron
+      -c cron.database_name=DWakadperpus
+      -c timezone=Asia/Jakarta
+      -c cron.timezone=Asia/Jakarta
+
+volumes:
+  akademik_data:
+  perpus_data:
+  dw_data:
