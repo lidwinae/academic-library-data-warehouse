@@ -1398,5 +1398,3 @@
  Perempuan               |            6013 |          2.49 |              152987 |                761550000
  Laki-laki               |            5987 |          2.48 |              153305 |                768641000
 (3 rows)
-
-PS C:\Users\lidwina\Documents\Semester 6\Data Warehouse DW\Akademik Perpus>
